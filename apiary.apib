@@ -1,0 +1,57 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Prescriptions
+
+Prescriptions is an API to create and list prescriptions.
+
+## Prescriptions Collection [/prescriptions]
+
+Use this to get a list of prescriptions. 
+
+### Get Prescriptions [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "drugName": "Prozac",
+                "patientID": "1234",
+                "doctor": "Dr. Smith"},
+            {
+                "drugName": "Aspirin",
+                "patientID": "33994",
+                "doctor": "Dr. Jones"},
+                
+                {
+                "drugName": "Z-Pac",
+                "patientID": "000345",
+                "doctor": "Dr. Black"}
+
+        ]
+
+### Create a New Prescription [POST]
+
+You can create a new prescription using this collection
+
++ Request (application/json)
+
+        {
+                "drugName": "Z-Pac",
+                "patientID": "000345",
+                "doctor": "Dr. Black"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /prescriptions/2
+
+    + Body
+
+            {
+                "drugName": "Z-Pac",
+                "patientID": "000345",
+                "doctor": "Dr. Black"
+            }
